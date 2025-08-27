@@ -2,25 +2,28 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    super.key,
+    super.key, required this.title, required this.icon,
   });
+  final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Notes', style: TextStyle(
+        Text(title, style: TextStyle(
           fontSize: 28
         ),),
         Spacer(),
-        CustomSearchIcon()
+        CustomIcon(icon: icon,)
       ],
     );
   }
 }
 
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({super.key});
+class CustomIcon extends StatelessWidget {
+  const CustomIcon({super.key, required this.icon});
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class CustomSearchIcon extends StatelessWidget {
         color: Colors.white.withValues(alpha: 0.05)
       ),
       child: Center(
-        child: Icon(Icons.search,
+        child: Icon(icon,
         size: 28,),
       ),
     );
