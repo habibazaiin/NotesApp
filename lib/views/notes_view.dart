@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/widgets/add_note_model_sheet.dart';
+import 'package:my_app/widgets/add_note_buttom_sheet.dart';
 import 'package:my_app/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
@@ -21,7 +21,7 @@ class NotesView extends StatelessWidget {
           );
         },
         shape: CircleBorder(),
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(0xff62FCD7),
         child: Icon(Icons.add),
       ),
       body: const NotesViewBody(),
