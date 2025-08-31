@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:my_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:my_app/models/note_model.dart';
+import 'package:my_app/widgets/color_list_view.dart';
 import 'package:my_app/widgets/custom_button.dart';
 import 'package:my_app/widgets/custom_text_field.dart';
 
@@ -42,6 +43,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
           ),
           SizedBox(height: 32),
+          ColorListView(),
+          SizedBox(height: 32),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
@@ -50,7 +53,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var currentDate = DateTime.now();
-                    var formattedDate = DateFormat('d MMMM yyyy').format(currentDate);
+                    var formattedDate = DateFormat(
+                      'd MMMM yyyy',
+                    ).format(currentDate);
                     var noteModel = NoteModel(
                       title: title!,
                       subtitle: subtitle!,
@@ -72,3 +77,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
